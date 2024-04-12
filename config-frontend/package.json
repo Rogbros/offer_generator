@@ -1,0 +1,35 @@
+{
+  "name": "django-htmx-tailwindcss",
+  "version": "1.0.0",
+  "description": "This Django project demonstrates the use of HTMX and Tailwind CSS to create interactive web applications. ![Sample app screenshot](screenshots/sample_app_view.png)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode development --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sunscrapers/django-htmx-tailwindcss.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sunscrapers/django-htmx-tailwindcss/issues"
+  },
+  "homepage": "https://github.com/sunscrapers/django-htmx-tailwindcss#readme",
+  "devDependencies": {
+    "css-loader": "^7.1.1",
+    "postcss": "^8.4.38",
+    "postcss-loader": "^8.1.1",
+    "postcss-preset-env": "^9.5.5",
+    "style-loader": "^4.0.0",
+    "tailwindcss": "^3.4.3",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "alpinejs": "^3.13.8",
+    "htmx.org": "^1.9.11"
+  }
+}

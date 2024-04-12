@@ -10,12 +10,6 @@
 
     <title>{% block title %}Example Web page{% endblock title %}</title>
 
-    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/tailwind-output.css' %}">
-
-    <script src="{% static 'js/htmx.min.js' %}"></script>
-    <script src="{% static 'js/flowbite.min.js' %}"></script>
-
     {% block head_extra %}{% endblock head_extra %}
   </head>
   <body class="container mx-auto" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>

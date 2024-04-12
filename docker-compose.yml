@@ -37,26 +37,13 @@ services:
         depends_on:
             - db
 
-    # Generating CSS output file for Tailwind CSS on save
-    npm-watch:
+    webpack-watch:
         <<: *base_app_conf
         image: myproject:latest
-        container_name: npm-watch
+        container_name: webpack-watch
         working_dir: /src
-        command: npm run watch:tailwindcss
+        command: npm run dev
         restart: always
-        volumes:
-            - "./app:/src/app"
-        depends_on:
-            - myproject
-    # Copying JS file from htmx package
-    htmx-js-generator:
-        <<: *base_app_conf
-        image: myproject:latest
-        container_name: htmx-js-generator
-        working_dir: /src
-        command: npm run build:htmx
-        restart: no
         volumes:
             - "./app:/src/app"
         depends_on:

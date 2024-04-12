@@ -10,13 +10,11 @@ RUN pip install pip --upgrade && pip install -r requirements.txt
 
 # Copy project
 ADD /app /src/app
-ADD /tailwindcss/ /src
+ADD /config-frontend/ /src
 
 # Install Tailwind CSS
 WORKDIR /src
 RUN npm install
-RUN npm run build:tailwindcss
-RUN npm run build:htmx
 
 # Set final workdir
 WORKDIR /src/app
