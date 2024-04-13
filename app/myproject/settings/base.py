@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # Custom
     "myproject",
     "todo_tracker",
+    "offers",
     # Third party
     "channels",
 ]

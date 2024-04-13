@@ -28,6 +28,7 @@ urlpatterns = [
     # Apps
     # todo_tracker
     path("", include("todo_tracker.urls", namespace="todo-tracker")),
+    path("offers/", include("offers.urls", namespace="offers")),
 ]
 
 if settings.DEBUG:
