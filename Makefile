@@ -49,3 +49,6 @@ circleci-up:
 
 circleci-tests:
 	docker exec -it myproject pytest -v --cov=./ --cov-config=tests/.coveragerc --junitxml=/src/test-results/junit.xml
+
+createsuperuser:
+	docker exec -it myproject python manage.py createsuperuser
