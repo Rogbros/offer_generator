@@ -26,9 +26,8 @@ urlpatterns = [
     # Admin
     path("admin/", admin.site.urls),
     # Apps
-    # todo_tracker
-    path("", include("todo_tracker.urls", namespace="todo-tracker")),
-    path("offers/", include("offers.urls", namespace="offers")),
+    path("", include("offers.urls", namespace="offers")),
+    path("accounts/", include("allauth.urls")),
 ]
 
 if settings.DEBUG:
