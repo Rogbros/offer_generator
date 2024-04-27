@@ -20,12 +20,31 @@
 
   <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
     <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-      <form method="POST" action="{% url 'account_signup' %}">
+      <form
+        id="signup-form"
+        hx-post="{% url 'account_signup' %}"
+        hx-select="#signup-form"
+        hx-swap="outerHTML"
+      >
         {% csrf_token %}
         <div>
-          <label for="id_username" class="block text-sm font-medium leading-5 {% if form.errors.username %}text-red-500{% else %}text-gray-700{% endif %}">Username</label>
+          <label
+            for="id_username"
+            class="block text-sm font-medium leading-5 {% if form.errors.username %}text-red-500{% else %}text-gray-700{% endif %}"
+          >
+            Username
+          </label>
           <div class="mt-1 relative rounded-md shadow-sm">
-            <input id="id_username" name="username" placeholder="John Doe" type="text" required autocomplete="username" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+            <input
+              id="id_username"
+              name="username"
+              placeholder="John Doe"
+              type="text"
+              required
+              autocomplete="username"
+              value="{{ form.username.value|default:'' }}"
+              class="appearance-none block w-full px-3 py-2 border {% if form.errors.username %}border-red-500{% else %}border-gray-300{% endif %} rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+            >
             <div class="absolute inset-y-0 right-0 pr-3 items-center pointer-events-none {% if form.errors.username %}flex{% else %}hidden{% endif %}">
               <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd"
@@ -46,11 +65,22 @@
         </div>
 
         <div class="mt-6">
-          <label for="id_email" class="block text-sm font-medium leading-5 {% if form.errors.email %}text-red-500{% else %}text-gray-700{% endif %}">
+          <label
+            for="id_email"
+            class="block text-sm font-medium leading-5 {% if form.errors.email %}text-red-500{% else %}text-gray-700{% endif %}"
+          >
             Email address
           </label>
           <div class="mt-1 relative rounded-md shadow-sm">
-            <input id="id_email" name="email" placeholder="user@example.com" type="email" autocomplete="email" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+            <input
+              id="id_email"
+              name="email"
+              placeholder="user@example.com"
+              type="email"
+              autocomplete="email"
+              value="{{ form.email.value|default:'' }}"
+              class="appearance-none block w-full px-3 py-2 border {% if form.errors.email %}border-red-500{% else %}border-gray-300{% endif %} rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+            >
             <div class="absolute inset-y-0 right-0 pr-3 items-center pointer-events-none {% if form.errors.username %}flex{% else %}hidden{% endif %}">
               <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd"
@@ -70,11 +100,22 @@
         </div>
 
         <div class="mt-6">
-          <label for="id_password1" class="block text-sm font-medium leading-5 {% if form.errors.password1 %}text-red-500{% else %}text-gray-700{% endif %}">
+          <label
+            for="id_password1"
+            class="block text-sm font-medium leading-5 {% if form.errors.password1 %}text-red-500{% else %}text-gray-700{% endif %}"
+          >
             Password
           </label>
           <div class="mt-1 rounded-md shadow-sm">
-            <input id="id_password1" name="password1" type="password" required autocomplete="new-password" placeholder="********" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+            <input
+              id="id_password1"
+              name="password1"
+              type="password"
+              required
+              autocomplete="new-password"
+              placeholder="********"
+              class="appearance-none block w-full px-3 py-2 border {% if form.errors.password1 %}border-red-500{% else %}border-gray-300{% endif %} rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+            >
           </div>
           {% if form.errors.password1 %}
             {% for error in form.errors.password1 %}
@@ -86,11 +127,22 @@
         </div>
 
         <div class="mt-6">
-          <label for="id_password2" class="block text-sm font-medium leading-5 {% if form.errors.password2 %}text-red-500{% else %}text-gray-700{% endif %}">
+          <label
+            for="id_password2"
+            class="block text-sm font-medium leading-5 {% if form.errors.password2 %}text-red-500{% else %}text-gray-700{% endif %}"
+          >
             Confirm Password
           </label>
           <div class="mt-1 rounded-md shadow-sm">
-            <input id="id_password2" name="password2" type="password" required autocomplete="new-password" placeholder="********" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+            <input
+              id="id_password2"
+              name="password2"
+              type="password"
+              required
+              autocomplete="new-password"
+              placeholder="********"
+              class="appearance-none block w-full px-3 py-2 border {% if form.errors.password2 %}border-red-500{% else %}border-gray-300{% endif %} rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+            >
           </div>
           {% if form.errors.password2 %}
             {% for error in form.errors.password2 %}
