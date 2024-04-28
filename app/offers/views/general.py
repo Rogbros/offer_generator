@@ -1,14 +1,12 @@
-from django.views.generic import TemplateView
+from django.views.generic import ListView
+from utils.mixins import HTMXSwapPartialMixin
 from django.utils.decorators import method_decorator
 from allauth.account.decorators import login_required
 
 
-class MainView(TemplateView):
-    template_name = "offers/pages/main.html"
-
-
-class OffersView(TemplateView):
-    template_name = "offers/pages/offer_view.html"
+class HTMXListView(HTMXSwapPartialMixin, ListView):
+    template_name = None
+    partial_template_name = None
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
