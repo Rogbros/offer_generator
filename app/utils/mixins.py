@@ -7,6 +7,6 @@ class HTMXSwapPartialMixin:
         super().__init__()
 
     def get_template_names(self):
-        if self.request.htmx:
-            return self.partial_template_name
+        # if self.request.htmx:
+        #     return self.partial_template_name
         return self.template_name
