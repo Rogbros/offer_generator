@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     # Allauth apps
     "allauth",
     "allauth.account",
+    "django_htmx",
 ]
 
 MIDDLEWARE = [
@@ -68,6 +69,8 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     # Allauth middleware
     "allauth.account.middleware.AccountMiddleware",
+    # HTMX middleware
+    "django_htmx.middleware.HtmxMiddleware",
 ]
 
 ROOT_URLCONF = "myproject.urls"

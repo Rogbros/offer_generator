@@ -9,6 +9,7 @@ asgiref==3.7.2
     #   channels
     #   daphne
     #   django
+    #   django-htmx
 attrs==23.1.0
     # via
     #   automat
@@ -43,7 +44,10 @@ django==4.2.5
     #   -r requirements/base.in
     #   channels
     #   django-allauth
+    #   django-htmx
 django-allauth==0.61.1
+    # via -r requirements/base.in
+django-htmx==1.17.2
     # via -r requirements/base.in
 hyperlink==21.0.0
     # via

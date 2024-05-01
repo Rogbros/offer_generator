@@ -11,6 +11,7 @@ asgiref==3.7.2
     #   channels
     #   daphne
     #   django
+    #   django-htmx
 asttokens==2.4.0
     # via stack-data
 attrs==23.1.0
@@ -56,10 +57,13 @@ django==4.2.5
     #   channels
     #   django-allauth
     #   django-extensions
+    #   django-htmx
 django-allauth==0.61.1
     # via -r requirements/base.in
 django-extensions==3.2.3
     # via -r requirements/dev.in
+django-htmx==1.17.2
+    # via -r requirements/base.in
 exceptiongroup==1.2.0
     # via
     #   ipython
