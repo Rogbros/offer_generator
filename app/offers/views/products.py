@@ -9,6 +9,8 @@ class ProductsView(HTMXListView):
     partial_template_name = "products/partials/products_list_table.html"
     context_object_name = "products"
 
+    ordering = ["-created_at"]
+
     queryset = Product.objects.all()
 
 
@@ -16,5 +18,9 @@ class CreateProductView(HTMXCreateView):
     template_name = "products/pages/new_product.html"
     partial_template_name = "products/forms/new_product_form.html"
     form_class = NewProductForm
-    success_url = "/products/"
+    success_url = "/products"
     pass_request_to_form = True
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)

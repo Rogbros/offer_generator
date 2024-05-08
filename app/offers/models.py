@@ -10,6 +10,8 @@ class Employee(models.Model):
     last_name = models.CharField(max_length=200, unique=False)
     email = models.EmailField(max_length=200, unique=False)
     photo = models.ImageField(upload_to="employees")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"{self.name} {self.last_name}"
@@ -24,6 +26,8 @@ class Product(models.Model):
     short_description = models.CharField(max_length=200, unique=False)
     description = models.TextField()
     image = models.ImageField(upload_to="products")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
 
 class Offer(models.Model):
@@ -32,3 +36,5 @@ class Offer(models.Model):
     description = models.TextField()
     products = models.ManyToManyField(Product)
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
