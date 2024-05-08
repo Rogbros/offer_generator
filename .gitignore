@@ -166,5 +166,6 @@ node_modules
 tailwind-output.css
 htmx.min.js
 media/
+bundle.js
 
 static/js/*.js
