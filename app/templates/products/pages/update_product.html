@@ -1,0 +1,9 @@
+{% extends "layouts/main_layout.html" %}
+
+{% block page_title %}
+  Edit product {{ product.name }}
+{% endblock page_title %}
+
+{% block content %}
+  {% include 'products/forms/update_product_form.html' %}
+{% endblock content %}
