@@ -9,7 +9,7 @@ class NewProductForm(forms.ModelForm):
     price = forms.DecimalField(required=True)
     short_description = forms.CharField(required=False)
     description = forms.CharField(required=False, widget=forms.Textarea)
-    image = forms.ImageField(required=False)
+    image = forms.ImageField(required=True)
 
     class Meta:
         model = Product

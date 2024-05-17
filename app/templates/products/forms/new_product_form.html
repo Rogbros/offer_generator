@@ -1,5 +1,6 @@
 <form
   id="new_product_form"
+  enctype="multipart/form-data"
   hx-post="{% url 'offers:create_product' %}"
   hx-swap="innerHTML"
   hx-target="#new_product_form"
@@ -8,6 +9,10 @@
   <div class="space-y-12">
     <div class="border-b border-gray-900/10 pb-12">
       <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+        <div class="sm:col-span-4">
+          <label for="image">Product image</label>
+          <input type="file" name="image" id="image" class="base_input">
+        </div>
         <div class="sm:col-span-4">
           <label
             for="name"

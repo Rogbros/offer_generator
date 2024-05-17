@@ -6,6 +6,9 @@
   hx-target="#update_product_form"
 >
   {{ form.errors }}
+  <p>Here should be an image</p>
+  {{ product.image }}
+  <img src="{{ product.image.url }}" alt="Product image" class="w-32 h-32 object-cover rounded-md border border-gray-900/10">
   <div class="space-y-12">
     <div class="border-b border-gray-900/10 pb-12">
       <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
