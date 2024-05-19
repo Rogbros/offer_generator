@@ -5,9 +5,6 @@
   hx-swap="innerHTML"
   hx-target="#update_product_form"
 >
-  {{ form.errors }}
-  <p>Here should be an image</p>
-  {{ product.image }}
   <img src="{{ product.image.url }}" alt="Product image" class="w-32 h-32 object-cover rounded-md border border-gray-900/10">
   <div class="space-y-12">
     <div class="border-b border-gray-900/10 pb-12">
