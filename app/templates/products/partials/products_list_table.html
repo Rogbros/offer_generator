@@ -1,4 +1,4 @@
-<div class="px-4 sm:px-6 lg:px-8">
+<div class="px-4 sm:px-6 lg:px-8" x-data="{ modal_open: false }">
   <div class="sm:flex sm:items-center">
     <div class="sm:flex-auto">
       <h1 class="text-base font-semibold leading-6 text-gray-900">Products</h1>
@@ -55,6 +55,14 @@
                   </td>
                   <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                     <a href="{% url 'offers:update_product' id=product.id %}" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only"> {{ product.name }}</span></a>
+                    <button
+                      type="button"
+                      class="ml-4 text-indigo-600 hover:text-indigo-900"
+                      data-toggle="modal"
+                      x-on:click="modal_open = ! modal_open"
+                    >
+                      Delete <span class="sr-only"> {{ product.name }}</span>
+                    </button>
                   </td>
                 </tr>
               {% endfor %}
@@ -64,4 +72,5 @@
       </div>
     </div>
   </div>
+  {% include 'products/components/modals/delete_product_modal.html' %}
 </div>
