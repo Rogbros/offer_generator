@@ -1,4 +1,4 @@
-<div class="px-4 sm:px-6 lg:px-8" x-data="{ modal_open: false }">
+<div class="px-4 sm:px-6 lg:px-8" x-data="{ modal_open: false, product_id: null }">
   <div class="sm:flex sm:items-center">
     <div class="sm:flex-auto">
       <h1 class="text-base font-semibold leading-6 text-gray-900">Products</h1>
@@ -59,7 +59,7 @@
                       type="button"
                       class="ml-4 text-indigo-600 hover:text-indigo-900"
                       data-toggle="modal"
-                      x-on:click="modal_open = ! modal_open"
+                      x-on:click="modal_open = ! modal_open; product_id = '{{ product.id }}'"
                     >
                       Delete <span class="sr-only"> {{ product.name }}</span>
                     </button>
