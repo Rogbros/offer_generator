@@ -37,3 +37,15 @@ class UpdateProductView(HTMXUpdateView):
 
     def get_object(self):
         return Product.objects.get(id=self.kwargs.get("id"))
+
+
+class DeleteProductView(HTMXUpdateView):
+    template_name = "products/pages/update_product.html"
+    partial_template_name = "products/forms/update_product_form.html"
+    form_class = NewProductForm
+    success_url = "/products"
+    pass_request_to_form = True
+    context_object_name = "product"
+
+    def get_object(self):
+        return Product.objects.get(id=self.kwargs.get("id"))
