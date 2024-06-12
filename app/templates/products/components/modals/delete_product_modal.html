@@ -35,7 +35,7 @@
           <button
             type="button"
             class="w-full rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 cursor-pointer"
-            hx-delete="$data('product_id')"
+            @click="confirmData($data)"
           >
             Delete 
           </button>
@@ -44,3 +44,9 @@
     </div>
   </div>
 </div>
+<script>
+  function confirmData({ product_id, modal_open }) {
+    const formNode = document.querySelector(`#delete-product-form-${product_id}`);
+    htmx.trigger(formNode, "confirmed");
+  }
+</script>

@@ -31,7 +31,8 @@ class HTMXUpdateView(HTMXRedirectMixin, UpdateView):
         return super().dispatch(*args, **kwargs)
 
 
-class HTMXDeleteView(HTMXRedirectMixin, DeleteView):
+class HTMXDeleteView(HTMXSwapPartialMixin, DeleteView):
+    partial_template_name = "products/partials/products_list_table.html"
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):

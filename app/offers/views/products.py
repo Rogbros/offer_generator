@@ -1,6 +1,7 @@
 from .general import HTMXListView
 from .general import HTMXCreateView
 from .general import HTMXUpdateView
+from .general import HTMXDeleteView
 from offers.models import Product
 from offers.forms.products import NewProductForm
 
@@ -39,10 +40,10 @@ class UpdateProductView(HTMXUpdateView):
         return Product.objects.get(id=self.kwargs.get("id"))
 
 
-class DeleteProductView(HTMXUpdateView):
-    template_name = "products/pages/update_product.html"
-    partial_template_name = "products/forms/update_product_form.html"
-    form_class = NewProductForm
+class DeleteProductView(HTMXDeleteView):
+    # template_name = "products/pages/update_product.html"
+    # partial_template_name = "products/forms/update_product_form.html"
+    # form_class = NewProductForm
     success_url = "/products"
     pass_request_to_form = True
     context_object_name = "product"

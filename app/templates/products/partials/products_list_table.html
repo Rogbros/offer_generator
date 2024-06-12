@@ -55,6 +55,12 @@
                   </td>
                   <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                     <a href="{% url 'offers:update_product' id=product.id %}" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only"> {{ product.name }}</span></a>
+                  <form
+                    id="delete-product-form-{{ product.id }}"
+                    hx-get="{% url 'offers:delete_product' id=product.id %}"
+                    hx-trigger="confirmed"
+                    x-on:confirmed="modal_open = false"
+                  >
                     <button
                       type="button"
                       class="ml-4 text-indigo-600 hover:text-indigo-900"
@@ -63,6 +69,8 @@
                     >
                       Delete <span class="sr-only"> {{ product.name }}</span>
                     </button>
+                  </form>
+
                   </td>
                 </tr>
               {% endfor %}
