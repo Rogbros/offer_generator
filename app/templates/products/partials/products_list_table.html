@@ -59,6 +59,7 @@
                     id="delete-product-form-{{ product.id }}"
                     hx-get="{% url 'offers:delete_product' id=product.id %}"
                     hx-trigger="confirmed"
+                    hx-swap="none"
                     x-on:confirmed="modal_open = false"
                   >
                     <button
