@@ -41,9 +41,6 @@ class UpdateProductView(HTMXUpdateView):
 
 
 class DeleteProductView(HTMXDeleteView):
-    # template_name = "products/pages/update_product.html"
-    # partial_template_name = "products/forms/update_product_form.html"
-    # form_class = NewProductForm
     success_url = "/products"
     pass_request_to_form = True
     context_object_name = "product"
