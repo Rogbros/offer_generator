@@ -46,4 +46,5 @@ class DeleteProductView(HTMXDeleteView):
     context_object_name = "product"
 
     def get_object(self):
-        return Product.objects.get(id=self.kwargs.get("id")).delete()
+        Product.objects.get(id=self.kwargs.get("id")).delete()
+        return Product.objects.all()
