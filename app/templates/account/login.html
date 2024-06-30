@@ -30,10 +30,11 @@
         hx-swap="outerHTML"
       >
         {% csrf_token %}
+        {{ form.errors }}
         <div>
             <label
               for="id_login"
-              class="block text-sm font-medium leading-5 {% if form.errors.login %}text-red-500{% else %}text-gray-700{% endif %}"
+              class="block text-sm font-medium leading-5 {% if form.errors %}text-red-500{% else %}text-gray-700{% endif %}"
             >
               Login
             </label>
@@ -45,7 +46,7 @@
                 type="text"
                 required autocomplete="username"
                 value="{{ form.login.value|default:'' }}"
-                class="appearance-none block w-full px-3 py-2 border {% if form.errors.login %}border-red-500{% else %}border-gray-300{% endif %} rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                class="appearance-none block w-full px-3 py-2 border {% if form.errors %}border-red-500{% else %}border-gray-300{% endif %} rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
               >
               <div class="hidden absolute inset-y-0 right-0 pr-3 items-center pointer-events-none">
                 <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
@@ -67,7 +68,7 @@
         <div class="mt-6">
             <label
               for="id_password"
-              class="block text-sm font-medium leading-5 {% if form.errors.password %}text-red-500{% else %}text-gray-700{% endif %}"
+              class="block text-sm font-medium leading-5 {% if form.errors %}text-red-500{% else %}text-gray-700{% endif %}"
             >
               Password
             </label>
